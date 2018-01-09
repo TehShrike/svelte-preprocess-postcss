@@ -1,0 +1,32 @@
+{
+  "name": "svelte-preprocess-postcss",
+  "version": "1.0.0",
+  "description": "Preprocess your Svelte component styles with PostCSS",
+  "main": "index.js",
+  "dependencies": {
+    "postcss-load-config": "^1.2.0"
+  },
+  "devDependencies": {
+    "postcss": "^6.0.16"
+  },
+  "peerDependencies": {
+    "postcss": "6.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TehShrike/svelte-preprocess-postcss.git"
+  },
+  "keywords": [
+    "svelte",
+    "postcss"
+  ],
+  "author": "TehShrike",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/TehShrike/svelte-preprocess-postcss/issues"
+  },
+  "homepage": "https://github.com/TehShrike/svelte-preprocess-postcss#readme"
+}

@@ -1,13 +1,22 @@
 const postcssLoadConfig = require(`postcss-load-config`)
 const postcss = require(`postcss`)
 
-module.exports = config => {
-	const configPromise = postcssLoadConfig({}, config)
+module.exports = (context = {}) => {
+	const { useConfigFile = true, configFilePath, plugins = [] } = context
 
-	return ({ content }) => configPromise.then(
-		({ plugins }) =>
-			postcss(plugins)
-				.process(content)
-				.then(code => ({ code }))
-	)
+	if (useConfigFile === false) {
+		return ({ content }) => Promise.resolve(process(plugins, content))
+	} else {
+		const configPromise = postcssLoadConfig(context, configFilePath)
+
+		return ({ content }) => configPromise.then(
+			({ plugins }) => process(plugins, content)
+		)
+	}
+}
+
+function process(plugins, css) {
+	return postcss(plugins)
+		.process(css)
+		.then(code => ({ code }))
 }

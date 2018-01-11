@@ -24,8 +24,8 @@ If you do pass in a context object/function, it is passed to `postcss-load-confi
 
 Besides whatever `postcss-load-config` does with the context, you can also provide these values:
 
-- `configFilePath` (optional string): If supplied, is used as the root path to use to look for a config file.
-- `useConfigFile` (optional boolean): if `false`, the preprocessor won't go looking for any configuration file - the `plugins` property of the `context` object will be used by itself.
+- `configFilePath` (optional string): If supplied, is used as the root path to use to look for a config file.  Defaults to the current working directory.
+- `useConfigFile` (optional boolean): if `false`, the preprocessor won't go looking for any configuration file - the `plugins` property of the `context` object will be used by itself.  Defaults to `true`.
 
 You can both pass in a context object with plugins and whatnot, and also load from a config file - `postcss-load-config` handles merging those together.
 

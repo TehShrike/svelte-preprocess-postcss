@@ -25,6 +25,6 @@ function process(plugins, css, filename) {
 		})
 		.then(result => ({
 				code: result.css,
-				map: result.map
-		}));
+				map: result.map.toJSON()
+		}))
 }

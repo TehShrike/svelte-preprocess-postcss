@@ -16,15 +16,15 @@ module.exports = (context = {}) => {
 }
 
 function process(plugins, css, filename) {
-  return postcss(plugins)
-    .process(css, {
-      from: filename,
-      map: {
-        inline: false
-      }
-    })
-    .then(result => ({
-        code: result.css,
-        map: result.map
-    }));
+	return postcss(plugins)
+		.process(css, {
+			from: filename,
+			map: {
+				inline: false
+			}
+		})
+		.then(result => ({
+				code: result.css,
+				map: result.map
+		}));
 }

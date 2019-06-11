@@ -1,6 +1,6 @@
 {
   "name": "svelte-preprocess-postcss",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Preprocess your Svelte component styles with PostCSS",
   "main": "index.js",
   "dependencies": {

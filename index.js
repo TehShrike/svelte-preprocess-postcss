@@ -5,18 +5,26 @@ module.exports = (context = {}) => {
 	const { useConfigFile = true, configFilePath, plugins = [] } = context
 
 	if (useConfigFile === false) {
-		return ({ content }) => Promise.resolve(process(plugins, content))
+		return ({ content, fileName }) => Promise.resolve(process(plugins, content, fileName))
 	} else {
 		const configPromise = postcssLoadConfig(context, configFilePath)
 
-		return ({ content }) => configPromise.then(
-			({ plugins }) => process(plugins, content)
+		return ({ content, fileName }) => configPromise.then(
+			({ plugins }) => process(plugins, content, fileName)
 		)
 	}
 }
 
-function process(plugins, css) {
-	return postcss(plugins)
-		.process(css)
-		.then(code => ({ code }))
+function process(plugins, css, filename) {
+  return postcss(plugins)
+    .process(css, {
+      from: filename,
+      map: {
+        inline: false
+      }
+    })
+    .then(result => ({
+        code: result.css,
+        map: result.map
+    }));
 }

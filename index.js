@@ -20,11 +20,11 @@ function process(plugins, css, filename) {
 		.process(css, {
 			from: filename,
 			map: {
-				inline: false
-			}
+				inline: false,
+			},
 		})
 		.then(result => ({
-				code: result.css,
-				map: result.map.toJSON()
+			code: result.css,
+			map: result.map.toJSON(),
 		}))
 }

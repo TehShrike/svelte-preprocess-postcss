@@ -10,7 +10,7 @@
     "postcss": "^6.0.16"
   },
   "peerDependencies": {
-    "postcss": "6.x"
+    "postcss": "7.x || 6.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified :-(\" && exit 0"

@@ -10,13 +10,13 @@ module.exports = (context = {}) => {
 		const configPromise = postcssLoadConfig(context, configFilePath)
 
 		return ({ content, filename }) => configPromise.then(
-			({ plugins }) => process(plugins, content, filename)
+			({ plugins, options }) => process(plugins, content, filename, options)
 		)
 	}
 }
 
-function process(plugins, css, filename) {
-	return postcss(plugins)
+function process(plugins, css, filename, options) {
+	return postcss(plugins, options)
 		.process(css, {
 			from: filename,
 			map: {
